@@ -44,21 +44,18 @@ class Solution{
     //Function to check whether there is a subarray present with 0-sum or not.
     static boolean findsum(int arr[],int n)
     {
-      Set<Integer> set = new HashSet<>();
-        int sum = 0;
-
-        for (int i = 0; i < n; i++) {
-            sum += arr[i];
-
-            // If the current sum is zero or it has been seen before, there is a subarray with zero sum.
-            if (sum == 0 || set.contains(sum)) {
+        //Your code here
+        for(int i=0; i<n;i++){
+            int temp=i+1;
+            int sum = arr[i];
+            while(sum!=0 && temp<n){
+                sum+=arr[temp];
+                temp++;
+            }
+            if (sum ==0){
                 return true;
             }
-
-            set.add(sum);
         }
-
-        // If no subarray with zero sum is found.
-        return false;  
+        return false;
     }
 }
