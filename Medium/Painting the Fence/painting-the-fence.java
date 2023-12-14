@@ -14,21 +14,19 @@ class Solution
     long countWays(int n,int k)
     {
         //code here.
-         int mod = 1000000007;
+        if(n == 1)
+            return k;
+            
+        long mod = (long) 1e9 + 7, same = 0, diff = k;
         
-      
-        long dp[][] = new long[n + 1][2];
-        
-        // Initialize base cases
-        dp[1][0] = k;
-        dp[1][1] = 0;
-        
-        for (int i = 2; i <= n; i++) {
-            dp[i][0] = ((dp[i - 1][0] + dp[i - 1][1]) * (k - 1)) % mod;
-            dp[i][1] = dp[i - 1][0];
+        for(int i = 2; i <= n; i++) 
+        {
+            long prev = same;
+            same = diff;
+            diff = ((prev + same) * (k - 1)) % mod;
         }
         
-        return (dp[n][0] + dp[n][1]) % mod;
+        return (same + diff) % mod;
     }
 }
 
