@@ -70,20 +70,6 @@ public class MainClass {
 
 // } Driver Code Ends
 
-
-/* Structure of the node*/
-/* class Node
-{
-	int data;
-	Node next;
-	
-	Node(int d)
-	{
-		data = d;
-		next = null;
-	}
-} */
-
 class GfG
 {
     Node mergeResult(Node node1, Node node2)
