@@ -51,36 +51,18 @@ class Solution
 	// n: size of array a[]
 	public int peakElement(int[] arr,int n)
     {
-        if (n == 0) {
-            // Array is empty, no peak element
-            return -1;
-        }
-
-        if (n == 1) {
-            // Single element array, the only element is the peak
-            return 0;
-        }
-
-        int l = 0, r = n - 1;
-
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-
-            if ((mid == 0 || arr[mid] >= arr[mid - 1]) && (mid == n - 1 || arr[mid] >= arr[mid + 1])) {
-                // arr[mid] is a peak element
-                return mid;
-            }
-
-            if (mid > 0 && arr[mid - 1] > arr[mid]) {
-                // Peak element lies in the left subarray
-                r = mid - 1;
-            } else {
-                // Peak element lies in the right subarray
-                l = mid + 1;
-            }
-        }
-
-        // No peak element found
-        return -1;
+       //add code here.
+       int i = 0, j = n-1;
+       int peak = 0;
+      while(i<j){
+          if(arr[i]<arr[j]){
+              peak = j;
+              i++;
+          } else if(arr[i]>=arr[j]){
+              peak = i;
+              j--;
+          }
+      }
+       return peak;
     }
 }
